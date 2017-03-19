@@ -5,15 +5,10 @@ namespace AppBundle\Twig;
 use AppBundle\Entity\Language;
 use AppBundle\Entity\Member;
 use AppBundle\Model\LanguageModel;
-use AppBundle\Repository\LanguageRepository;
-use AppBundle\Repository\MemberRepository;
 use Carbon\Carbon;
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Mapping\Entity;
 use Faker\Factory;
 use HtmlTruncator\Truncator;
-use Rox\I18n\Service\LanguageService;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Twig_Extension;
 use Twig_Extension_GlobalsInterface;
@@ -30,7 +25,7 @@ class Extension extends Twig_Extension implements Twig_Extension_GlobalsInterfac
     /**
      * @var Registry
      */
-    protected  $registry;
+    protected $registry;
 
     public function __construct(
         SessionInterface $session,
@@ -133,7 +128,7 @@ class Extension extends Twig_Extension implements Twig_Extension_GlobalsInterfac
             'languages' => $langarr,
             'robots' => 'ALL',
             'my_member' => $member,
-            'teams' => false
+            'teams' => false,
         ];
     }
 }

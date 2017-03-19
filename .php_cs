@@ -2,7 +2,7 @@
 $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->notName('*.twig')
     ->notName('*.yml')
-    ->in('module');
+    ->in('src');
 $config = Symfony\CS\Config\Config::create();
 $config->level(null);
 $config->fixers(

@@ -699,7 +699,7 @@ class ForumPost
      */
     public function getUpdated()
     {
-        if ($this->updated){
+        if ($this->updated) {
             return Carbon::instance($this->updated);
         }
         return Carbon::instance($this->created);

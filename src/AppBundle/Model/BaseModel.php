@@ -24,7 +24,7 @@ class BaseModel
     {
         /** @var Statement $stm */
         $stm = $this->em->getConnection()->prepare($sql);
-        if($stm->execute()){
+        if ($stm->execute()) {
             return $stm;
         };
     }

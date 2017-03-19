@@ -22,7 +22,7 @@ class CommunityNewsController extends Controller
         $page = $request->query->get('page', 1);
         $limit = $request->query->get('limit', 10);
 
-        $communityNewsModel = new CommunityNewsModel( $this->getDoctrine() );
+        $communityNewsModel = new CommunityNewsModel($this->getDoctrine());
         $communityNews = $communityNewsModel->getLatestPaginator($page, $limit);
 
         return $this->render(':communitynews:list.html.twig', [
@@ -42,5 +42,4 @@ class CommunityNewsController extends Controller
             'communityNews' => $communityNews,
         ]);
     }
-
 }

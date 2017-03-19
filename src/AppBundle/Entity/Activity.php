@@ -353,7 +353,7 @@ class Activity
     public function getAttendeesYes()
     {
         $criteria = Criteria::create()
-            ->where(Criteria::expr()->eq("status", "1"))
+            ->where(Criteria::expr()->eq('status', '1'))
         ;
 
         $attendeesYes = $this->attendees->matching($criteria);
@@ -366,7 +366,7 @@ class Activity
     public function getAttendeesNo()
     {
         $criteria = Criteria::create()
-            ->where(Criteria::expr()->eq("status", "0"))
+            ->where(Criteria::expr()->eq('status', '0'))
         ;
 
         $attendeesNo = $this->attendees->matching($criteria);
@@ -379,7 +379,7 @@ class Activity
     public function getAttendeesMaybe()
     {
         $criteria = Criteria::create()
-            ->where(Criteria::expr()->eq("status", "2"))
+            ->where(Criteria::expr()->eq('status', '2'))
         ;
 
         $attendeesMaybe = $this->attendees->matching($criteria);
@@ -392,7 +392,7 @@ class Activity
     public function getOrganizers()
     {
         $criteria = Criteria::create()
-            ->where(Criteria::expr()->eq("organizer", "1"))
+            ->where(Criteria::expr()->eq('organizer', '1'))
         ;
 
         $organizers = $this->attendees->matching($criteria);

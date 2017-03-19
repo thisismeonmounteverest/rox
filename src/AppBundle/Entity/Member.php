@@ -12,12 +12,7 @@ use Carbon\Carbon;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\ManyToMany;
-use Doctrine\ORM\Mapping\OneToOne;
 use Rox\Core\Exception\RuntimeException;
-use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 use Symfony\Component\Security\Core\Encoder\EncoderAwareInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -931,7 +926,8 @@ class Member implements UserInterface, \Serializable, EncoderAwareInterface
      */
     public function getLastName()
     {
-        return $this->getCryptedField('LastName');    }
+        return $this->getCryptedField('LastName');
+    }
 
     /**
      * Set accommodation
@@ -2319,13 +2315,13 @@ class Member implements UserInterface, \Serializable, EncoderAwareInterface
      */
     public function serialize()
     {
-        return serialize(array(
+        return serialize([
             $this->id,
             $this->username,
             $this->password,
             // see section on salt below
             // $this->salt,
-        ));
+        ]);
     }
 
     /**
@@ -2339,7 +2335,7 @@ class Member implements UserInterface, \Serializable, EncoderAwareInterface
      */
     public function unserialize($serialized)
     {
-        list (
+        list(
             $this->id,
             $this->username,
             $this->password,
@@ -2432,7 +2428,7 @@ class Member implements UserInterface, \Serializable, EncoderAwareInterface
      */
     public function getSalt()
     {
-        return null;
+        return;
     }
 
     /**
@@ -2513,8 +2509,8 @@ class Member implements UserInterface, \Serializable, EncoderAwareInterface
     private function getCryptedField($fieldName)
     {
         $criteria = Criteria::create()
-            ->where(Criteria::expr()->eq("TableColumn", "members." . $fieldName));
-        $cryptedField = $this->cryptedFields->matching( $criteria )->first();
+            ->where(Criteria::expr()->eq('TableColumn', 'members.' . $fieldName));
+        $cryptedField = $this->cryptedFields->matching($criteria)->first();
         $value = $cryptedField->getMemberCryptedValue();
         $stripped = strip_tags($value);
 

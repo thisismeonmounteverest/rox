@@ -8,10 +8,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\OneToMany;
-use Doctrine\ORM\Mapping\OneToOne;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -83,7 +79,6 @@ class ForumThread
      * @ORM\Column(name="last_postid", type="integer", nullable=true)
      */
     private $lastPostid;
-
 
     /**
      * @var integer
@@ -230,7 +225,6 @@ class ForumThread
      * @ORM\OneToMany(targetEntity="ForumPost", mappedBy="threadId")
      */
     private $posts;
-
 
     public function __construct()
     {

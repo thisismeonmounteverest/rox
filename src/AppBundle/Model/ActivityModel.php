@@ -2,13 +2,11 @@
 
 namespace AppBundle\Model;
 
-
 use AppBundle\Entity\Activity;
 use AppBundle\Repository\ActivityRepository;
 
 class ActivityModel extends BaseModel
 {
-
     public function getLatest($page, $limit)
     {
         /** @var ActivityRepository $repository */

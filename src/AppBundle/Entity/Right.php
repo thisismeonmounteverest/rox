@@ -8,9 +8,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\ManyToMany;
 
 /**
  * Right
@@ -78,7 +75,6 @@ class Right
     {
         $this->rightVolunteers = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
     /**
      * Set created

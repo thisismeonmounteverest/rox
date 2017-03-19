@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-
 use AppBundle\Entity\Member;
 use EnvironmentExplorer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -29,7 +28,7 @@ class LegacyController extends Controller
         $session->start();
         if (!$session->has('IdMember')) {
             $rememberMeToken = unserialize($session->get('_security_default'));
-            if ($rememberMeToken == null) {
+            if ($rememberMeToken === null) {
                 throw new AccessDeniedException();
             }
             /** @var Member $user */

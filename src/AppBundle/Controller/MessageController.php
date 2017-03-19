@@ -2,8 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Model\MessageModel;
 use AppBundle\Entity\Message;
+use AppBundle\Model\MessageModel;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -133,10 +133,10 @@ class MessageController extends Controller
         return $this->render(':message:index.html.twig', [
             'messages' => $messages,
             'subitems' => [
-                'MessagesReceived' => [ 'route' => [ 'name' => 'messages', 'filter' => 'inbox' ] ],
-                'MessagesSent' => [ 'route' => [ 'name' => 'messages', 'filter' => 'sent' ] ],
-                'MessagesSpam' => [ 'route' => [ 'name' => 'messages', 'filter' => 'spam' ] ],
-                'MessagesDeleted' => [ 'route' => [ 'name' => 'messages', 'filter' => 'deleted' ] ],
+                'MessagesReceived' => ['route' => ['name' => 'messages', 'filter' => 'inbox']],
+                'MessagesSent' => ['route' => ['name' => 'messages', 'filter' => 'sent']],
+                'MessagesSpam' => ['route' => ['name' => 'messages', 'filter' => 'spam']],
+                'MessagesDeleted' => ['route' => ['name' => 'messages', 'filter' => 'deleted']],
             ],
         ]);
     }
@@ -154,7 +154,7 @@ class MessageController extends Controller
     public function show(Message $message)
     {
         $member = $this->getUser();
-        if (($message->getReceiver() <> $member) && ($message->getSender() <> $member)) {
+        if (($message->getReceiver() !== $member) && ($message->getSender() !== $member)) {
             throw new AccessDeniedException();
         }
 

@@ -2,10 +2,9 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use Nelmio\Alice\Fixtures;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-
+use Nelmio\Alice\Fixtures;
 
 class LoadMemberData implements FixtureInterface
 {
@@ -14,7 +13,7 @@ class LoadMemberData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $objects = Fixtures::load(__DIR__.'/languages.yml', $manager);
-        $objects = Fixtures::load(__DIR__.'/words.yml', $manager);
+        $objects = Fixtures::load(__DIR__ . '/languages.yml', $manager);
+        $objects = Fixtures::load(__DIR__ . '/words.yml', $manager);
     }
 }

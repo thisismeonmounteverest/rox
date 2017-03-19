@@ -2,17 +2,13 @@
 
 namespace AppBundle\Model;
 
-use AnthonyMartin\GeoLocation\GeoLocation;
+use AppBundle\Entity\ForumThread;
 use AppBundle\Entity\Member;
 use AppBundle\Entity\Message;
-use AppBundle\Entity\ForumThread;
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
-use stdClass;
 
-class LandingModel extends BaseModel {
-
+class LandingModel extends BaseModel
+{
     /**
      * Generates messages for display on home page
      *
@@ -43,7 +39,7 @@ class LandingModel extends BaseModel {
                 ->andWhere("whenfirstread = '0000-00-00 00:00.00");
         }
 
-        if($limit <> 0) {
+        if ($limit !== 0) {
             $queryBuilder->setMaxResults($limit);
         }
 
@@ -97,7 +93,7 @@ class LandingModel extends BaseModel {
      */
     public function getThreads(Member $member, $groups, $forum, $following, $limit = 0)
     {
-        if ($groups + $forum + $following == 0) {
+        if ($groups + $forum + $following === 0) {
             // Member decided not to show anything
             return [];
         }
@@ -123,7 +119,6 @@ class LandingModel extends BaseModel {
             $groups = $member->getGroups();
         }
         if ($following) {
-
         }
         if (!empty($groupIds)) {
             $queryBuilder
@@ -157,8 +152,9 @@ class LandingModel extends BaseModel {
         return $activities;
     }
 
-    public function getMemberDetails() {
-/*        $loggedInMember = $this->getLoggedInMember();
+    public function getMemberDetails()
+    {
+        /*        $loggedInMember = $this->getLoggedInMember();
         $location = Capsule::table('geonames')->where('geonameId', $loggedInMember->IdCity)->first(['name']);
         return ['member' =>
             [
@@ -166,16 +162,18 @@ class LandingModel extends BaseModel {
                 'hosting' => $loggedInMember->Accomodation
             ]
         ];
-*/    }
+*/
+    }
 
-    public function getDonationCampaignDetails() {
+    public function getDonationCampaignDetails()
+    {
     }
 
     /**
      * @param Member $member
      * @return array|bool
      */
-    public function getTravellersInAreaOfMember( Member $member)
+    public function getTravellersInAreaOfMember(Member $member)
     {
         $member;
 /*        $travellers = false;
@@ -192,7 +190,8 @@ class LandingModel extends BaseModel {
             }
         }
         return $travellers;
-*/    }
+*/
+    }
 
     /**
      * @param Member $member
@@ -206,4 +205,4 @@ class LandingModel extends BaseModel {
         $this->em->flush($member);
         return $member;
     }
-    }
+}

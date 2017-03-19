@@ -40,13 +40,17 @@ class LegacyLoader extends Loader
         require_once $dirfix . 'routes.php';
 
         // Forum urls
+        $this->addRoute('members_profile', 'members/{username}', '', '');
         $this->addRoute('forums', 'forums', '', '');
-        $this->addRoute('bwforum', 'forums/bwforum', '', '');
+        $this->addRoute('forums_new', 'forums/new', '', '');
         $this->addRoute('forum_thread', '/forums/s{threadId}', '', '');
+        $this->addRoute('forum_tag', '/forums/t{tagId}', '', '');
+        $this->addRoute('forums_thread_reply', 'forums/s{threadId}/reply', '', '');
+        $this->addRoute('bwforum', 'forums/bwforum', '', '');
         $this->addRoute('community', '/community', '', '');
         $this->addRoute('faq', '/faq', '', '');
         $this->addRoute('faq_category', '/faq/{category}', '', '');
-        $this->addRoute('about_faq_category', '/aboutaactivi/faq/{category}', '', '');
+        $this->addRoute('about_faq_category', '/about/faq/{category}', '', '');
         $this->addRoute('about', '/about', '', '');
         $this->addRoute('getactive', '/about/getactive', '', '');
 
@@ -60,9 +64,9 @@ class LegacyLoader extends Loader
     private function addRoute($name, $path, $controller, $action, $ignore = null)
     {
         $ignore;
-        $path = preg_replace( '^:(.*?):^', '{\1}', $path);
-        $this->routes->add($name, new Route( $path, [
-            '_controller' => 'rox.legacy_controller:showAction'
+        $path = preg_replace('^:(.*?):^', '{\1}', $path);
+        $this->routes->add($name, new Route($path, [
+            '_controller' => 'rox.legacy_controller:showAction',
         ]));
     }
 

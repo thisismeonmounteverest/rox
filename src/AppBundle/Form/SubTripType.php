@@ -25,7 +25,7 @@ class SubTripType extends AbstractType
         $formBuilder
             ->add('search', TextType::class, [
                 'attr' => [
-                    'class' => 'search-picker'
+                    'class' => 'search-picker',
                 ],
                 'mapped' => false,
             ])
@@ -53,10 +53,10 @@ class SubTripType extends AbstractType
                 function ($optionsAsNumber) {
                     // transform the number back to an array
                     $optionsAsArray = [];
-                    if (($optionsAsNumber & 1) == 1) {
+                    if (($optionsAsNumber & 1) === 1) {
                         $optionsAsArray['TripsLocationOptionLookingForAHost'] = 1;
                     }
-                    if (($optionsAsNumber & 2) == 2) {
+                    if (($optionsAsNumber & 2) === 2) {
                         $optionsAsArray['TripsLocationOptionLikeToMeetUp'] = 2;
                     }
                     return $optionsAsArray;
@@ -67,7 +67,7 @@ class SubTripType extends AbstractType
                         return 0;
                     }
                     $optionsAsNumber = 0;
-                    foreach($optionsAsArray as $value) {
+                    foreach ($optionsAsArray as $value) {
                         $optionsAsNumber += $value;
                     }
                     return $optionsAsNumber;
@@ -75,7 +75,6 @@ class SubTripType extends AbstractType
             ))
         ;
     }
-
 
     public function configureOptions(OptionsResolver $resolver)
     {

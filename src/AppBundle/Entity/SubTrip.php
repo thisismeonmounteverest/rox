@@ -147,9 +147,9 @@ class SubTrip
     public function setOptions($options)
     {
         $optionsValue = 0;
-        foreach($options as $key => $value) {
+        foreach ($options as $key => $value) {
             $optionsValue += $value;
-    }
+        }
         $this->options = $optionsValue;
 
         return $this;

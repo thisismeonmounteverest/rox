@@ -85,8 +85,6 @@ class CryptedField
      */
     private $id;
 
-
-
     /**
      * Set admincryptedvalue
      *

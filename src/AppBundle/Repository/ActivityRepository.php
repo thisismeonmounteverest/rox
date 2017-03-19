@@ -62,7 +62,6 @@ class ActivityRepository extends EntityRepository
         $edison = GeoLocation::fromDegrees($latitude, $longitude);
         $coordinates = $edison->boundingCoordinates($distance, 'km');
 
-
         $expr = Criteria::expr();
         $criteria = Criteria::create();
         $criteria->where($expr->gte('latitude', $coordinates[0]->getLatitudeInDegrees()))
@@ -86,5 +85,4 @@ class ActivityRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
-
 }

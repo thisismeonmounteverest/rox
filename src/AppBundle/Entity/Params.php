@@ -197,8 +197,6 @@ class Params
      */
     private $id;
 
-
-
     /**
      * Set updated
      *

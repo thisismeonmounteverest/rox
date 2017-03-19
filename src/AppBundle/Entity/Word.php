@@ -113,8 +113,6 @@ class Word
      */
     private $id;
 
-
-
     /**
      * Set code
      *

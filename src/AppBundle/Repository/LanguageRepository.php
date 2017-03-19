@@ -4,7 +4,6 @@ namespace AppBundle\Repository;
 
 use AppBundle\Entity\Language;
 use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\ORM\Query\ResultSetMappingBuilder;
 
 /**
@@ -16,7 +15,7 @@ class LanguageRepository extends EntityRepository
      *
      * @return array Language
      */
-    public function getLanguagesWithTranslations( $locale )
+    public function getLanguagesWithTranslations($locale)
     {
         $entityManager = $this->getEntityManager();
         $rsm = new ResultSetMappingBuilder($entityManager);

@@ -99,8 +99,6 @@ class Notification
      */
     private $id;
 
-
-
     /**
      * Set member
      *

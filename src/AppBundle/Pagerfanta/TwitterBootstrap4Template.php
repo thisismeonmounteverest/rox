@@ -12,7 +12,7 @@ use Pagerfanta\View\Template\Template;
  */
 class TwitterBootstrap4Template extends Template
 {
-    static protected $defaultOptions = array(
+    protected static $defaultOptions = [
         'prev_message'        => '&larr; Previous',
         'next_message'        => 'Next &rarr;',
         'dots_message'        => '&hellip;',
@@ -23,10 +23,11 @@ class TwitterBootstrap4Template extends Template
         'css_disabled_class'  => 'disabled',
         'css_dots_class'      => 'disabled',
         'css_active_class'    => 'active',
-    );
+    ];
     public function container()
     {
-        return sprintf('<nav><ul class="%s">%%pages%%</ul></nav>',
+        return sprintf(
+            '<nav><ul class="%s">%%pages%%</ul></nav>',
             $this->option('css_container_class')
         );
     }
@@ -53,7 +54,7 @@ class TwitterBootstrap4Template extends Template
     }
     private function previousDisabledClass()
     {
-        return $this->option('css_prev_class').' '.$this->option('css_disabled_class');
+        return $this->option('css_prev_class') . ' ' . $this->option('css_disabled_class');
     }
     public function previousEnabled($page)
     {
@@ -69,7 +70,7 @@ class TwitterBootstrap4Template extends Template
     }
     private function nextDisabledClass()
     {
-        return $this->option('css_next_class').' '.$this->option('css_disabled_class');
+        return $this->option('css_next_class') . ' ' . $this->option('css_disabled_class');
     }
     public function nextEnabled($page)
     {
@@ -87,7 +88,7 @@ class TwitterBootstrap4Template extends Template
     }
     public function current($page)
     {
-        $text = trim($page.' '.$this->option('active_suffix'));
+        $text = trim($page . ' ' . $this->option('active_suffix'));
         $class = $this->option('css_active_class');
         return $this->spanLi($class, $text);
     }
@@ -100,16 +101,16 @@ class TwitterBootstrap4Template extends Template
     public function __construct()
     {
         parent::__construct();
-        $this->setOptions(array('active_suffix' => '<span class="sr-only">(current)</span>'));
+        $this->setOptions(['active_suffix' => '<span class="sr-only">(current)</span>']);
     }
     public function linkLi($class, $href, $text)
     {
-        $liClass = implode(' ', array_filter(array('page-item', $class)));
+        $liClass = implode(' ', array_filter(['page-item', $class]));
         return sprintf('<li class="%s"><a class="page-link" href="%s">%s</a></li>', $liClass, $href, $text);
     }
     public function spanLi($class, $text)
     {
-        $liClass = implode(' ', array_filter(array('page-item', $class)));
+        $liClass = implode(' ', array_filter(['page-item', $class]));
 
         return sprintf('<li class="%s"><span class="page-link">%s</span></li>', $liClass, $text);
     }

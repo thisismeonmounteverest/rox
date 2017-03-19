@@ -2,9 +2,9 @@
 
 namespace AppBundle\Twig;
 
-use Illuminate\Database\Query\Expression;
 use AppBundle\Entity\Member;
 use AppBundle\Entity\Message;
+use Illuminate\Database\Query\Expression;
 use Symfony\Component\Security\Core\Authentication\Token\AnonymousToken;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Twig_Extension;

@@ -7,9 +7,9 @@
 
 namespace AppBundle\Entity;
 
+use Carbon\Carbon;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Carbon\Carbon;
 
 /**
  * Message
@@ -452,6 +452,6 @@ class Message
 
     public function isUnread()
     {
-        return ($this->whenfirstread == null);
+        return ($this->whenfirstread === null);
     }
 }

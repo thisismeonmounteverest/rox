@@ -2,13 +2,11 @@
 
 namespace AppBundle\Model;
 
-
 use AppBundle\Entity\Message;
 use AppBundle\Repository\MessageRepository;
 
 class MessageModel extends BaseModel
 {
-
     public function getFilteredMessages($member, $filter, $sort, $sortDir, $page = 1, $limit = 10)
     {
         /** @var MessageRepository $repository */

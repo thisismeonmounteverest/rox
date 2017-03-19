@@ -4,9 +4,9 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\SubTrip;
 use AppBundle\Entity\Trip;
+use AppBundle\Form\TripType;
 use AppBundle\Model\TripModel;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use AppBundle\Form\TripType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -102,7 +102,7 @@ class TripController extends Controller
     public function updateAction(Request $request, Trip $trip)
     {
         $member = $this->getUser();
-        if ($trip->getCreatedBy() <> $member) {
+        if ($trip->getCreatedBy() !== $member) {
             throw new AccessDeniedException();
         }
 

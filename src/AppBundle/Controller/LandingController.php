@@ -2,17 +2,17 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Model\CommunityNewsModel;
-use AppBundle\Model\DonateModel;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Member;
-use AppBundle\Model\LandingModel;
 use AppBundle\Form\SearchGotoLocationFormType;
 use AppBundle\Form\SearchHomeLocationFormType;
+use AppBundle\Model\CommunityNewsModel;
+use AppBundle\Model\DonateModel;
+use AppBundle\Model\LandingModel;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class LandingController extends Controller
 {
@@ -195,7 +195,7 @@ class LandingController extends Controller
                 'campaign' => [
                     'year' => $campaignDetails->year,
                     'yearNeeded' => $campaignDetails->YearNeededAmount,
-                    'yearDonated' => $campaignDetails->YearDonation
+                    'yearDonated' => $campaignDetails->YearDonation,
                 ],
                 'travellers' => $travellersInArea,
                 'communityNews' => $latestNews,
@@ -203,5 +203,4 @@ class LandingController extends Controller
 
         return new Response($content->getContent());
     }
-
 }

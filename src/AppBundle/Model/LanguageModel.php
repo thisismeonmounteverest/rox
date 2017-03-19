@@ -3,9 +3,7 @@
 namespace AppBundle\Model;
 
 use AppBundle\Entity\Language;
-use AppBundle\Repository\LanguageRepository;
 use Doctrine\ORM\Query\ResultSetMappingBuilder;
-use Pagerfanta\Pagerfanta;
 
 class LanguageModel extends BaseModel
 {
@@ -14,7 +12,7 @@ class LanguageModel extends BaseModel
      *
      * @return array Language
      */
-    public function getLanguagesWithTranslations( $locale )
+    public function getLanguagesWithTranslations($locale)
     {
         $entityManager = $this->em;
 
